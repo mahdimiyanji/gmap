@@ -1,0 +1,42 @@
+.toolbox {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  .panel-button {
+    padding: 2px;
+    border-radius: 0;
+    min-width: 35px !important;
+    min-height: 35px;
+    color: #2c2c2c;
+    overflow: hidden;
+  }
+  
+  .toolbox-main-items {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .toolbox-settings-button {
+    background: white;
+    border-radius: 5px;
+  }
+}
+
+html[dir="rtl"] .toolbox {
+  right: 10px
+}
+
+html[dir="ltr"] .toolbox {
+  left: 10px
+}
+
+.settingsContainer {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}

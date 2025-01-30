@@ -1,0 +1,5 @@
+.map-container {
+  flex: 1;
+  position: relative;
+  background: #373737;
+}
