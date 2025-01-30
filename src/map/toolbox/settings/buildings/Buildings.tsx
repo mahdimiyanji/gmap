@@ -1,8 +1,8 @@
+import { useEffect } from "react"
 import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
 import Switch from "@mui/material/Switch"
 import Tooltip from "@mui/material/Tooltip"
-import { useEffect } from "react"
 import { IBuildingsState } from "../../../store/slices/buildings/types.ts"
 import useMapStore from "../../../store/useMapStore.ts"
 import formStyles from "../styles.module.css"
@@ -18,16 +18,14 @@ const Buildings = () => {
   useEffect(() => {
     const unSubscribe = useMapStore.subscribe(
       state => [state.buildingsTileUrl, state.showBuildings],
-      (newConfig) => {
+      newConfig => {
         const configObject: IBuildingsState = {
           buildingsTileUrl: newConfig[0] as string,
           showBuildings: newConfig[1] as boolean
         }
         localStorage.setItem("__buildings", JSON.stringify(configObject))
       },
-      {
-        fireImmediately: true
-      }
+      { fireImmediately: true }
     )
     
     return () => {
@@ -61,7 +59,7 @@ const Buildings = () => {
         </div>
         
         <div className={styles.buttonContainer}>
-          <Button variant={"outlined"} size={"small"}>
+          <Button variant="outlined" size="small">
             افزودن آدرس جدید
           </Button>
         </div>

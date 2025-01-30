@@ -1,8 +1,9 @@
 import React from "react"
 import Tooltip from "@mui/material/Tooltip"
-import LayersIcon from "../../../@core/icons/LayersIcon.tsx"
 import Button from "@mui/material/Button"
+import LayersIcon from "../../../@core/icons/LayersIcon.tsx"
 import styles from "../styles.module.css"
+
 type Props = {
   onClick: () => void
 }

@@ -6,13 +6,10 @@ import { mapMainSlice } from "./slices/main/mapMainSlice.ts"
 import { terrainSlice } from "./slices/terrain/terrainSlice.ts"
 import { IMapStore } from "./types.ts"
 
-const useMapStore = create(
-  subscribeWithSelector(
-    immer<IMapStore>((...params) => ({
-      ...mapMainSlice(...params),
-      ...buildingsSlice(...params),
-      ...terrainSlice(...params)
-    })))
-)
+const useMapStore = create(subscribeWithSelector(immer<IMapStore>((...params) => ({
+  ...mapMainSlice(...params),
+  ...buildingsSlice(...params),
+  ...terrainSlice(...params)
+}))))
 
 export default useMapStore

@@ -4,7 +4,6 @@ import FormLabel from "@mui/material/FormLabel"
 import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Radio from "@mui/material/Radio"
-import { useTranslation } from "react-i18next"
 import useMapStore from "../../store/useMapStore.ts"
 
 const TilesForm = () => {
@@ -26,9 +25,7 @@ const TilesForm = () => {
       <RadioGroup
         value={activeTile}
         onChange={handleLayerChange}
-        sx={{
-          p: 1
-        }}
+        sx={{ p: 1 }}
       >
         {
           tiles.map(tile => (

@@ -1,10 +1,10 @@
+import React, { useEffect } from "react"
 import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
 import MenuItem from "@mui/material/MenuItem"
 import Select from "@mui/material/Select"
 import Switch from "@mui/material/Switch"
 import Tooltip from "@mui/material/Tooltip"
-import React, { useEffect } from "react"
 import { ITerrainState } from "../../../store/slices/terrain/types.ts"
 import useMapStore from "../../../store/useMapStore.ts"
 import formStyles from "../styles.module.css"
@@ -29,7 +29,7 @@ const Terrain = () => {
         state.hillShade,
         state.exaggeration
       ],
-      (newConfig) => {
+      newConfig => {
         const configObject: ITerrainState = {
           terrainTileUrl: newConfig[0] as string,
           hillshadeTileUrl: newConfig[1] as string,
@@ -39,9 +39,7 @@ const Terrain = () => {
         }
         localStorage.setItem("__terrain", JSON.stringify(configObject))
       },
-      {
-        fireImmediately: true
-      }
+      { fireImmediately: true }
     )
     
     return () => {
@@ -73,13 +71,16 @@ const Terrain = () => {
           
           <Select
             value={exaggeration}
-            size={"small"}
+            size="small"
             onChange={e => changeTerrainProperty("exaggeration", +(e.target.value))}
             sx={{ minWidth: "100px" }}
           >
             <MenuItem value={1}>1</MenuItem>
+
             <MenuItem value={1.5}>1.5</MenuItem>
+
             <MenuItem value={2}>2</MenuItem>
+
             <MenuItem value={3}>3</MenuItem>
           </Select>
         </div>
@@ -101,7 +102,7 @@ const Terrain = () => {
         </div>
         
         <div className={styles.buttonContainer}>
-          <Button variant={"outlined"} size={"small"}>
+          <Button variant="outlined" size="small">
             افزودن آدرس جدید
           </Button>
         </div>

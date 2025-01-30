@@ -68,16 +68,16 @@ const Terrain = () => {
         hillShade &&
         <>
           <Source
-            id={"hillshade-source"}
-            type={"raster-dem"}
+            id="hillshade-source"
+            type="raster-dem"
             url={hillshadeTileUrl}
             tileSize={256}
           />
 
           <Layer
-            id={"hillshade"}
-            type={"hillshade"}
-            source={"hillshade-source"}
+            id="hillshade"
+            type="hillshade"
+            source="hillshade-source"
           />
         </>
       }

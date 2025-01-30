@@ -7,6 +7,7 @@ const Layout = () => {
   return (
     <div className={styles.pageLayout}>
       <Header />
+
       <Map />
     </div>
   )

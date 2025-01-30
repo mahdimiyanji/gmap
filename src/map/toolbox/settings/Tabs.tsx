@@ -1,8 +1,8 @@
 import React from "react"
-import styles from "./styles.module.css"
-import { ISettingsItem } from "./types.ts"
 import { IconButton } from "@mui/material"
 import Tooltip from "@mui/material/Tooltip"
+import styles from "./styles.module.css"
+import { ISettingsItem } from "./types.ts"
 
 type Props = {
   tabs: ISettingsItem[]
@@ -23,11 +23,13 @@ const Tabs = (props: Props) => {
         tabs.map(tab => (
           <Tooltip
             title={tab.tooltipText}
-            placement={"left"}
-            onClick={e => {
-              e.stopPropagation()
-              e.preventDefault()
-            }}
+            placement="left"
+            onClick={
+              e => {
+                e.stopPropagation()
+                e.preventDefault()
+              }
+            }
             key={tab.uniqueName}
           >
             <IconButton

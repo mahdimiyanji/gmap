@@ -1,6 +1,6 @@
+import React, { ReactElement, useMemo, useRef, useState } from "react"
 import Divider from "@mui/material/Divider"
 import Popover from "@mui/material/Popover"
-import React, { ReactElement, useMemo, useRef, useState } from "react"
 import ResetNorth from "./resetNorth/ResetNorth.tsx"
 import Settings from "./settings/Settings.tsx"
 import SettingsButton from "./settings/SettingsButton.tsx"
@@ -78,19 +78,21 @@ const MapToolbox = () => {
           open={true}
           anchorEl={toolboxRef.current}
           onClose={handleClose}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: -2
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right"
-          }}
+          anchorOrigin={
+            {
+              vertical: "top",
+              horizontal: -2
+            }
+          }
+          transformOrigin={
+            {
+              vertical: "top",
+              horizontal: "right"
+            }
+          }
           elevation={0}
         >
-          {
-            activeToolboxItem.popoverContent
-          }
+          {activeToolboxItem.popoverContent}
         </Popover>
       }
     </div>

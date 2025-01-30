@@ -1,11 +1,9 @@
 import { ImmerStateCreator } from "../types"
 import { ITerrainSlice } from "./types"
 
-export const terrainSlice: ImmerStateCreator<ITerrainSlice> = (set) => ({
+export const terrainSlice: ImmerStateCreator<ITerrainSlice> = set => ({
   terrainTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
   hillshadeTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
-  // terrainTileUrl: "http://localhost:8080/data/terrain.json",
-  // hillshadeTileUrl: "http://localhost:8080/data/terrain.json",
   hillShade: false,
   terrain: false,
   exaggeration: 1,
@@ -27,7 +25,7 @@ export const terrainSlice: ImmerStateCreator<ITerrainSlice> = (set) => ({
     })
   },
   
-  setTerrainConfig: (config) => {
+  setTerrainConfig: config => {
     set(state => {
       state.terrainTileUrl = config.terrainTileUrl
       state.hillshadeTileUrl = config.hillshadeTileUrl

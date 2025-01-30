@@ -40,9 +40,7 @@ const Settings = () => {
         onChange={handleChange}
       />
       
-      {
-        activeSettings.tabPanel
-      }
+      {activeSettings.tabPanel}
     </div>
   )
 }

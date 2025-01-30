@@ -44,35 +44,39 @@ const Buildings = () => {
         type: "vector"
       })
       
-      map.addLayer(
-        {
-          "id": "3d-buildings",
-          "source": "openmaptiles",
-          "source-layer": "building",
-          "type": "fill-extrusion",
-          "minzoom": 15,
-          "paint": {
-            "fill-extrusion-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "render_height"], 0, "lightgray", 200, "royalblue", 400, "lightblue"
-            ],
-            "fill-extrusion-height": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              15,
-              0,
-              16,
-              ["get", "render_height"]
-            ],
-            "fill-extrusion-base": ["case",
-              [">=", ["get", "zoom"], 16],
-              ["get", "render_min_height"], 0
-            ]
-          }
+      map.addLayer({
+        "id": "3d-buildings",
+        "source": "openmaptiles",
+        "source-layer": "building",
+        "type": "fill-extrusion",
+        "minzoom": 15,
+        "paint": {
+          "fill-extrusion-color": [
+            "interpolate",
+            ["linear"],
+            ["get", "render_height"],
+            0,
+            "lightgray",
+            200,
+            "royalblue",
+            400,
+            "lightblue"
+          ],
+          "fill-extrusion-height": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            15,
+            0,
+            16,
+            ["get", "render_height"]
+          ],
+          "fill-extrusion-base": ["case",
+            [">=", ["get", "zoom"], 16],
+            ["get", "render_min_height"],
+            0]
         }
-      )
+      })
     }
   }
   

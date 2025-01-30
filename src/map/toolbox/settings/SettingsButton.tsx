@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "@mui/material/Button"
-import styles from "../styles.module.css"
 import Tooltip from "@mui/material/Tooltip"
+import styles from "../styles.module.css"
 import SettingsIcon from "../../../@core/icons/SettingsIcon.tsx"
 
 type Props = {
