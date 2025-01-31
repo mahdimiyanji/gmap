@@ -1,11 +1,15 @@
-import React from "react"
-import { Map as MapGl } from "react-map-gl"
-import mapbox from "mapbox"
+import React, { useMemo } from "react"
+import MapGL from "react-map-gl"
+import "mapbox-gl"
+import "mapbox-gl/dist/mapbox-gl.css"
 import styles from "./styles.module.css"
 import useMapStore from "./store/useMapStore.ts"
 import MapToolbox from "./toolbox/MapToolbox.tsx"
 import Buildings from "./controllers/Buildings.tsx"
 import Terrain from "./controllers/Terrain.tsx"
+
+// eslint-disable-next-line @stylistic/max-len
+const accessToken = "pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ"
 
 const Map = () => {
   
@@ -13,10 +17,13 @@ const Map = () => {
   const activeTile = useMapStore(state => state.activeTile)
   const showBuildings = useMapStore(state => state.showBuildings)
   
+  const activeStyle = useMemo(() => {
+    return tiles.find(tile => tile.uuid === activeTile)!.serverUrl
+  }, [])
   
   return (
     <div className={styles.mapContainer}>
-      <MapGl
+      <MapGL
         initialViewState={
           {
             longitude: 51.3755,
@@ -24,9 +31,8 @@ const Map = () => {
             zoom: 2
           }
         }
-        mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
-        // @ts-ignore
-        mapLib={mapbox}
+        mapStyle={activeStyle}
+        mapboxAccessToken={accessToken}
         styleDiffing
         projection={{ name: "globe" }}
         style={{ fontFamily: "unset" }}
@@ -39,7 +45,7 @@ const Map = () => {
         }
         
         <Terrain />
-      </MapGl>
+      </MapGL>
     </div>
   )
 }

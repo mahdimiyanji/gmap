@@ -14,7 +14,7 @@
     "@emotion/styled": "11.11.0",
     "@mui/material": "5.14.19",
     "immer": "10.0.3",
-    "mapbox": "git+ssh://git@github.com/mahdimiyanji/mapbox.git",
+    "mapbox-gl": "git+ssh://git@github.com/mahdimiyanji/mapbox.git",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "13.5.0",

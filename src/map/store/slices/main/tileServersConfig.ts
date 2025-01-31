@@ -27,30 +27,35 @@ const tileServersConfig: IMapTile[] = [
   //   title: "streets"
   // },
   {
-    uuid: "42ae6a7c-110f-4ddd-9cbb-d01b026ce7f8",
-    serverUrl: "https://api.maptiler.com/maps/basic-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
-    title: "Basic"
-  },
-  {
-    uuid: "a150b5f4-abc5-4d0c-9210-4b90d617abe6",
-    serverUrl: "https://api.maptiler.com/maps/bright-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
-    title: "Bright"
-  },
-  {
-    uuid: "680dac3f-c4e9-43f9-a255-c5c1308916fa",
-    serverUrl: "https://api.maptiler.com/maps/dataviz/style.json?key=o8iIkgKwbGcsp7zAKldE",
-    title: "Data viz"
-  },
-  {
-    uuid: "a0495d56-2924-4044-b756-6cfbdf106034",
-    serverUrl: "https://api.maptiler.com/maps/satellite/style.json?key=o8iIkgKwbGcsp7zAKldE",
-    title: "Satellite"
-  },
-  {
-    uuid: "0b2db865-450e-4ee4-9b62-57f4209a01ab",
-    serverUrl: "https://api.maptiler.com/maps/topo-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
-    title: "Topo"
+    uuid: "42ae6a7d-110f-4ddd-9cbb-d01b026ce3f8",
+    serverUrl: "https://api.mapbox.com/styles/v1/mapbox/standard?access_token=pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ",
+    title: "Standard"
   }
+  // {
+  //   uuid: "42ae6a7c-110f-4ddd-9cbb-d01b026ce7f8",
+  //   serverUrl: "https://api.maptiler.com/maps/basic-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
+  //   title: "Basic"
+  // },
+  // {
+  //   uuid: "a150b5f4-abc5-4d0c-9210-4b90d617abe6",
+  //   serverUrl: "https://api.maptiler.com/maps/bright-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
+  //   title: "Bright"
+  // },
+  // {
+  //   uuid: "680dac3f-c4e9-43f9-a255-c5c1308916fa",
+  //   serverUrl: "https://api.maptiler.com/maps/dataviz/style.json?key=o8iIkgKwbGcsp7zAKldE",
+  //   title: "Data viz"
+  // },
+  // {
+  //   uuid: "a0495d56-2924-4044-b756-6cfbdf106034",
+  //   serverUrl: "https://api.maptiler.com/maps/satellite/style.json?key=o8iIkgKwbGcsp7zAKldE",
+  //   title: "Satellite"
+  // },
+  // {
+  //   uuid: "0b2db865-450e-4ee4-9b62-57f4209a01ab",
+  //   serverUrl: "https://api.maptiler.com/maps/topo-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
+  //   title: "Topo"
+  // }
 ]
 
 export default tileServersConfig
