@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./styles.module.css"
 
-const Header = () => {
+const Sidebar = () => {
   return (
     <div className={styles.header}>
       <h3>Gmap</h3>
@@ -9,4 +9,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Sidebar
