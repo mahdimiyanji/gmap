@@ -3,8 +3,10 @@ import styles from "./styles.module.css"
 
 const Sidebar = () => {
   return (
-    <div className={styles.header}>
-      <h3>Gmap</h3>
+    <div className={styles.sidebar}>
+      <div className={styles.logo}>
+        <img src="/text-logo.svg" alt="logo" />
+      </div>
     </div>
   )
 }
