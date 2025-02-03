@@ -2,11 +2,7 @@ import React, { ReactElement, useMemo, useRef, useState } from "react"
 import Divider from "@mui/material/Divider"
 import Popover from "@mui/material/Popover"
 import ResetNorth from "./resetNorth/ResetNorth.tsx"
-import Settings from "./settings/Settings.tsx"
-import SettingsButton from "./settings/SettingsButton.tsx"
 import styles from "./styles.module.css"
-import TilesController from "./tiles/TilesController.tsx"
-import TilesForm from "./tiles/TilesForm.tsx"
 import { IToolboxItem } from "./types.ts"
 
 const MapToolbox = () => {
@@ -24,19 +20,19 @@ const MapToolbox = () => {
       name: "reset-north",
       controller: <ResetNorth />,
       placement: "main"
-    },
-    {
-      name: "tiles",
-      controller: <TilesController onClick={() => handlePopoverOpen("tiles")} />,
-      popoverContent: <TilesForm />,
-      placement: "main"
-    },
-    {
-      name: "settings",
-      controller: <SettingsButton onClick={() => handlePopoverOpen("settings")} />,
-      popoverContent: <Settings />,
-      placement: "secondary"
     }
+    // {
+    //   name: "tiles",
+    //   controller: <TilesController onClick={() => handlePopoverOpen("tiles")} />,
+    //   popoverContent: <TilesForm />,
+    //   placement: "main"
+    // },
+    // {
+    //   name: "settings",
+    //   controller: <SettingsButton onClick={() => handlePopoverOpen("settings")} />,
+    //   popoverContent: <Settings />,
+    //   placement: "secondary"
+    // }
   ], [])
   
   const handleClose = () => {

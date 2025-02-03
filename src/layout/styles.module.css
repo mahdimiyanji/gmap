@@ -8,7 +8,6 @@
 .sidebar {
   height: 100%;
   width: 250px;
-  /*background: #0b2127;*/
   padding: 8px;
   display: flex;
   flex-direction: column;

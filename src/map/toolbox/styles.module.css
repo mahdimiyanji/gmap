@@ -1,6 +1,7 @@
 .toolbox {
   position: absolute;
   top: 10px;
+  left: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -25,14 +26,6 @@
     background: white;
     border-radius: 5px;
   }
-}
-
-html[dir="rtl"] .toolbox {
-  right: 10px
-}
-
-html[dir="ltr"] .toolbox {
-  left: 10px
 }
 
 .settingsContainer {
