@@ -1,9 +1,9 @@
-import "./styles.css"
+import "./styles/styles.css"
 import createCache from "@emotion/cache"
 import { CacheProvider } from "@emotion/react"
 import rtlPlugin from "stylis-plugin-rtl"
-import Layout from "./layout/Layout.tsx"
-import MuiThemeProvider from "./MuiThemeProvider.tsx"
+import Main from "./layout/Main"
+import MuiThemeProvider from "./configs/MuiThemeProvider"
 
 const directionCache = createCache({
   key: "rtl",
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <CacheProvider value={directionCache}>
       <MuiThemeProvider>
-        <Layout />
+        <Main />
       </MuiThemeProvider>
     </CacheProvider>
   )
