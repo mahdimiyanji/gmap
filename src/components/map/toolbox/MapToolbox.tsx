@@ -30,7 +30,7 @@ const MapToolbox = () => {
     // {
     //   name: "settings",
     //   controller: <SettingsButton onClick={() => handlePopoverOpen("settings")} />,
-    //   popoverContent: <Settings />,
+    //   popoverContent: <settings />,
     //   placement: "secondary"
     // }
   ], [])
