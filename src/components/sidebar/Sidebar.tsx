@@ -21,7 +21,7 @@ const Sidebar = () => {
     <div className="h-full w-[240px] p-1 flex flex-col gap-2 relative">
       <div className="h-[40px] flex justify-center">
         <img
-          src="/images/text-logo.svg"
+          src="/images/logo/text-logo.svg"
           className="h-full"
           alt="logo"
         />

@@ -8,11 +8,14 @@ const SecondSide = () => {
   
   const activeComponent = items.find(item => item.uuid === activeItem)?.component
   
-  return (
-    <div>
-      {activeComponent && activeComponent}
-    </div>
-  )
+  if (activeItem) {
+    return (
+      <div className="w-[350px]">
+        {activeComponent && activeComponent}
+      </div>
+    )
+  }
+  else return null
 }
 
 export default SecondSide
