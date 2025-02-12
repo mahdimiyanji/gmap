@@ -14,7 +14,7 @@ const Buildings = () => {
   const showBuildings = useMapStore(state => state.showBuildings)
   const setShowBuildings = useMapStore(state => state.setShowBuildings)
   
-  // save buildings settings in local storage
+  // save buildings base-map in local storage
   useEffect(() => {
     const unSubscribe = useMapStore.subscribe(
       state => [state.buildingsTileUrl, state.showBuildings],

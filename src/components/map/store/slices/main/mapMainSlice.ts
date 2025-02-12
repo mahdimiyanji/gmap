@@ -1,6 +1,6 @@
 import { ImmerStateCreator } from "../types"
 import { IMapMainSlice } from "./types"
-import tileServersConfig from "./tileServersConfig"
+import tileServersConfig from "../../../../sidebar/base-map/tileServersConfig.ts"
 
 export const mapMainSlice: ImmerStateCreator<IMapMainSlice> = set => ({
   tiles: tileServersConfig,

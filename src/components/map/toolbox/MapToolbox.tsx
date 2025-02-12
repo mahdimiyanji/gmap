@@ -28,9 +28,9 @@ const MapToolbox = () => {
     //   placement: "main"
     // },
     // {
-    //   name: "settings",
-    //   controller: <SettingsButton onClick={() => handlePopoverOpen("settings")} />,
-    //   popoverContent: <settings />,
+    //   name: "base-map",
+    //   controller: <SettingsButton onClick={() => handlePopoverOpen("base-map")} />,
+    //   popoverContent: <base-map />,
     //   placement: "secondary"
     // }
   ], [])

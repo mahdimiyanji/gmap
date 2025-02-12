@@ -11,7 +11,7 @@ const Buildings = () => {
   const mapRef = useMap()
   const map = mapRef.current!.getMap()
   
-  // load and restore buildings settings from local storage in first render
+  // load and restore buildings base-map from local storage in first render
   useEffect(() => {
     const loadedObject = localStorage.getItem("__buildings")
     if (loadedObject) {

@@ -19,7 +19,7 @@ const Terrain = () => {
   const exaggeration = useMapStore(state => state.exaggeration)
   const changeTerrainProperty = useMapStore(state => state.changeTerrainProperty)
   
-  // save terrain settings in local storage
+  // save terrain base-map in local storage
   useEffect(() => {
     const unSubscribe = useMapStore.subscribe(
       state => [

@@ -17,7 +17,7 @@ const Terrain = () => {
   const mapRef = useMap()
   const map = mapRef.current!.getMap()
   
-  // load and restore terrain settings from local storage in first render
+  // load and restore terrain base-map from local storage in first render
   useEffect(() => {
     const loadedObject = localStorage.getItem("__terrain")
     if (loadedObject) {

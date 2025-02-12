@@ -15,6 +15,10 @@ export type IMapTile = {
   uuid: string
   title: string
   serverUrl: string
+  type: "vector" | "raster"
+  thumbnail: string
+  provider: string
+  providerLogo: string
 }
 
 export type IMapProjection = "globe" | "mercator"

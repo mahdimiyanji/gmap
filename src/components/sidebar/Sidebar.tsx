@@ -45,7 +45,7 @@ const Sidebar = () => {
                   <SettingsIcon />
                 </ListItemIcon>
 
-                <ListItemText primary={item.title} />
+                <ListItemText className="text-right" primary={item.title} />
               </ListItemButton>
             </ListItem>
           ))

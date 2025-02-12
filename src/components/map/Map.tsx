@@ -22,7 +22,7 @@ const Map = () => {
   
   const activeStyle = useMemo(() => {
     return tiles.find(tile => tile.uuid === activeTile)!.serverUrl
-  }, [])
+  }, [activeTile])
   
   const mapProjection = useMemo(() => {
     return { name: projection } as MapboxProjection

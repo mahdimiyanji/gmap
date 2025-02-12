@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
-    "@mui/material": "5.14.19",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "6.4.4",
+    "@mui/material": "6.4.4",
     "@tailwindcss/vite": "^4.0.3",
     "immer": "10.0.3",
     "mapbox-gl": "git+ssh://git@github.com/mahdimiyanji/mapbox.git",
