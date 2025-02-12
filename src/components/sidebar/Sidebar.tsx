@@ -18,12 +18,19 @@ const Sidebar = () => {
   }
   
   return (
-    <div className="h-full w-[240px] p-1 flex flex-col gap-2 relative">
-      <div className="h-[40px] flex justify-center">
+    <div className="h-full w-[200px] p-1 flex flex-col gap-2 relative">
+      <div className="h-[40px] flex justify-center gap-1 items-end">
         <img
           src="/images/logo/text-logo.svg"
-          className="h-full"
-          alt="logo"
+          width="80"
+          alt="Gmap"
+        />
+
+        <img
+          src="/images/logo/logo.svg"
+          width="36"
+          height="36"
+          alt="Gmap"
         />
       </div>
       
