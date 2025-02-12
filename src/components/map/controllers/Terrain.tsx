@@ -58,7 +58,7 @@ const Terrain = () => {
       if (isTerrainSourceLoaded) {
         map.removeSource("terrain")
       }
-      map.setTerrain(null)
+      map.setTerrain(undefined)
     }
   }
   

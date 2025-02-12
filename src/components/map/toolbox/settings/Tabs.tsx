@@ -1,5 +1,5 @@
 import React from "react"
-import { IconButton } from "@mui/material"
+import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
 import styles from "./styles.module.css"
 import { ISettingsItem } from "./types"

@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from "react"
-import { useMediaQuery } from "@mui/material"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import useMediaQuery from "@mui/material/useMediaQuery"
 
 type Props = {
   children: ReactNode
