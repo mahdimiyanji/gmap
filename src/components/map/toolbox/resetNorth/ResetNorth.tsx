@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useMap } from "react-map-gl"
+import { useMap } from "react-map-gl/mapbox"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import styles from "../styles.module.css"

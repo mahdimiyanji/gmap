@@ -1,8 +1,7 @@
 import React, { useMemo } from "react"
-import MapGL from "react-map-gl"
+import MapGL from "react-map-gl/mapbox"
 import "@core/packages/mapbox-gl.js"
 import "@core/packages/mapbox-gl.css"
-import { Projection as MapboxProjection } from "mapbox-gl"
 import styles from "./styles.module.css"
 import useMapStore from "./store/useMapStore"
 import MapToolbox from "./toolbox/MapToolbox"
@@ -25,7 +24,7 @@ const Map = () => {
   }, [activeTile])
   
   const mapProjection = useMemo(() => {
-    return { name: projection } as MapboxProjection
+    return { name: projection }
   }, [projection])
   
   return (

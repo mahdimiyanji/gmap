@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef } from "react"
-import { Layer, Source, useMap } from "react-map-gl"
+import { Layer, Source, useMap } from "react-map-gl/mapbox"
 import { ITerrainState } from "../store/slices/terrain/types"
 import useMapStore from "../store/useMapStore"
 
