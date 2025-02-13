@@ -28,7 +28,7 @@ const ProjectionSwitch = () => {
           }
           onClick={() => clickHandler("mercator")}
         >
-          <img src="/images/mercator.webp" alt="mercator" />
+          <img src="/images/projection/mercator.webp" alt="mercator" />
         </div>
         
         <div
@@ -42,7 +42,7 @@ const ProjectionSwitch = () => {
           }
           onClick={() => clickHandler("globe")}
         >
-          <img src="/images/globe.webp" alt="globe" />
+          <img src="/images/projection/globe.webp" alt="globe" />
         </div>
       </div>
     </>
