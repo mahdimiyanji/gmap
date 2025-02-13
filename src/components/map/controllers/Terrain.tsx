@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from "react"
-import { Layer, Source, useMap } from "react-map-gl/mapbox"
 import { ITerrainState } from "../store/slices/terrain/types"
 import useMapStore from "../store/useMapStore"
+import useMap from "@/components/map/hooks/useMap.ts"
 
 const Terrain = () => {
   
@@ -15,7 +15,7 @@ const Terrain = () => {
   const isMapStylesLoaded = useRef(false)
   
   const mapRef = useMap()
-  const map = mapRef.current!.getMap()
+  const map = mapRef.current
   
   // load and restore terrain base-map from local storage in first render
   useEffect(() => {
@@ -67,18 +67,18 @@ const Terrain = () => {
       {
         hillShade &&
         <>
-          <Source
-            id="hillshade-source"
-            type="raster-dem"
-            url={hillshadeTileUrl}
-            tileSize={256}
-          />
-
-          <Layer
-            id="hillshade"
-            type="hillshade"
-            source="hillshade-source"
-          />
+          {/* <Source*/}
+          {/*  id="hillshade-source"*/}
+          {/*  type="raster-dem"*/}
+          {/*  url={hillshadeTileUrl}*/}
+          {/*  tileSize={256}*/}
+          {/* />*/}
+          
+          {/* <Layer*/}
+          {/*  id="hillshade"*/}
+          {/*  type="hillshade"*/}
+          {/*  source="hillshade-source"*/}
+          {/* />*/}
         </>
       }
     </>

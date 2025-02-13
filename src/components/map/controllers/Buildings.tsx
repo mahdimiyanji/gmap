@@ -1,7 +1,8 @@
 import { memo, useEffect } from "react"
-import { useMap } from "react-map-gl/mapbox"
+// import { useMap } from "react-map-gl/mapbox"
 import { IBuildingsState } from "../store/slices/buildings/types"
 import useMapStore from "../store/useMapStore"
+import useMap from "@/components/map/hooks/useMap.ts"
 
 const Buildings = () => {
   
@@ -9,7 +10,7 @@ const Buildings = () => {
   const setBuildingsConfig = useMapStore(state => state.setBuildingsConfig)
   
   const mapRef = useMap()
-  const map = mapRef.current!.getMap()
+  const map = mapRef.current
   
   // load and restore buildings base-map from local storage in first render
   useEffect(() => {
