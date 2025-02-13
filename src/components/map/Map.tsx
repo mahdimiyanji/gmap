@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import MapToolbox from "./toolbox/MapToolbox"
 import MapStyleSwitcher from "@/components/map/controllers/MapStyleSwitcher.tsx"
 import MountingMap from "@/components/map/controllers/MountingMap.tsx"
+import Projection from "@/components/map/controllers/projection/Projection.tsx"
 
 // eslint-disable-next-line @stylistic/max-len
 const accessToken = "pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ"
@@ -36,6 +37,8 @@ const Map = () => {
         <MapToolbox />
       
         <MapStyleSwitcher />
+
+        <Projection />
       </MountingMap>
 
       {/* {*/}
@@ -44,8 +47,6 @@ const Map = () => {
       {/* }*/}
         
       {/* <Terrain />*/}
-        
-      {/* <Projection />*/}
 
       {/* </MapGL>*/}
     </>

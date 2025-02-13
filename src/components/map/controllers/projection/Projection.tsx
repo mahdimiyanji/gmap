@@ -1,7 +1,10 @@
 import { memo, useEffect } from "react"
-import useMapStore from "../../store/useMapStore.ts"
+import useMapStore from "../../store/useMapStore"
+import useMap from "@/components/map/hooks/useMap"
 
 const Projection = () => {
+  
+  const map = useMap()
   
   const setProjection = useMapStore(state => state.setProjection)
   
@@ -25,10 +28,11 @@ const Projection = () => {
       state => state.projection,
       newProj => {
         localStorage.setItem("mapProjection", newProj)
+        map.current.setProjection(newProj)
       },
       { fireImmediately: true }
     )
-    
+
     return () => {
       unSubscribe()
     }
