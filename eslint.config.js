@@ -9,7 +9,7 @@ import stylistic from "@stylistic/eslint-plugin"
 import destructing from "eslint-plugin-newline-destructuring"
 
 export default tseslint.config({
-  ignores: ["dist", "node_modules", ".idea"],
+  ignores: ["dist", "node_modules", ".idea", "src/@core/packages"],
   extends: [js.configs.recommended, tseslint.configs.recommended],
   files: ["**/*.{ts,tsx}"],
   languageOptions: {

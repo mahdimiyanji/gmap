@@ -39,7 +39,7 @@ const Sidebar = () => {
       <List>
         {
           items.map(item => (
-            <ListItem disablePadding>
+            <ListItem disablePadding key={item.uuid}>
               <ListItemButton onClick={() => handleClick(item.uuid)}>
                 <ListItemIcon>
                   <SettingsIcon />

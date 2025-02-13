@@ -1,5 +1,4 @@
-import React, { ReactElement, useMemo, useRef, useState } from "react"
-import Divider from "@mui/material/Divider"
+import React, { useMemo, useRef, useState } from "react"
 import Popover from "@mui/material/Popover"
 import ResetNorth from "./resetNorth/ResetNorth"
 import styles from "./styles.module.css"
@@ -44,28 +43,30 @@ const MapToolbox = () => {
   return (
     <div className={styles.toolbox} ref={toolboxRef}>
       <div className={styles.toolboxMainItems}>
-        {
-          toolboxItems.reduce((res, item, index) => {
-            if (item.placement === "main") {
-              res.push(item.controller)
-            }
-            if (index < toolboxItems.length - 2) {
-              res.push(<Divider />)
-            }
-            return res
-          }, [] as ReactElement[])
-        }
+        <ResetNorth />
+
+        {/* {*/}
+        {/*  toolboxItems.reduce((res, item, index) => {*/}
+        {/*    if (item.placement === "main") {*/}
+        {/*      res.push(item.controller)*/}
+        {/*    }*/}
+        {/*    if (index < toolboxItems.length - 2) {*/}
+        {/*      res.push(<Divider />)*/}
+        {/*    }*/}
+        {/*    return res*/}
+        {/*  }, [] as ReactElement[])*/}
+        {/* }*/}
       </div>
       
       <div className={styles.toolboxSettingsButton}>
-        {
-          toolboxItems.reduce((res, item, index) => {
-            if (item.placement === "secondary") {
-              res.push(item.controller)
-            }
-            return res
-          }, [] as ReactElement[])
-        }
+        {/* {*/}
+        {/*  toolboxItems.reduce((res, item, index) => {*/}
+        {/*    if (item.placement === "secondary") {*/}
+        {/*      res.push(item.controller)*/}
+        {/*    }*/}
+        {/*    return res*/}
+        {/*  }, [] as ReactElement[])*/}
+        {/* }*/}
       </div>
       
       {

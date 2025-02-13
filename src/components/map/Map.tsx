@@ -1,60 +1,57 @@
-import React, { useMemo } from "react"
-import MapGL from "react-map-gl/mapbox"
+import React, { useEffect, useRef, useState } from "react"
 import "@core/packages/mapbox-gl.js"
 import "@core/packages/mapbox-gl.css"
 import styles from "./styles.module.css"
-import useMapStore from "./store/useMapStore"
 import MapToolbox from "./toolbox/MapToolbox"
-import Buildings from "./controllers/Buildings"
-import Terrain from "./controllers/Terrain"
-import Projection from "./controllers/projection/Projection.tsx"
+import MapStyleSwitcher from "@/components/map/controllers/MapStyleSwitcher.tsx"
+import MountingMap from "@/components/map/controllers/MountingMap.tsx"
 
 // eslint-disable-next-line @stylistic/max-len
 const accessToken = "pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ"
 
+
 const Map = () => {
   
-  const tiles = useMapStore(state => state.tiles)
-  const activeTile = useMapStore(state => state.activeTile)
-  const showBuildings = useMapStore(state => state.showBuildings)
-  const projection = useMapStore(state => state.projection)
+  const [, setIsMounted] = useState(false)
   
-  const activeStyle = useMemo(() => {
-    return tiles.find(tile => tile.uuid === activeTile)!.serverUrl
-  }, [activeTile])
+  const mapContainerRef = useRef<HTMLElement>(null)
+  const mapRef = useRef<mapboxgl.Map>(null)
   
-  const mapProjection = useMemo(() => {
-    return { name: projection }
-  }, [projection])
+  useEffect(() => {
+    if (mapContainerRef.current) {
+      // @ts-ignore
+      mapRef.current = new mapboxgl.Map({
+        container: mapContainerRef.current,
+        style: "mapbox://styles/mapbox/streets-v11",
+        zoom: 4,
+        accessToken
+      })
+      setIsMounted(true)
+    }
+  }, [])
   
   return (
-    <div className={styles.mapContainer}>
-      <MapGL
-        initialViewState={
-          {
-            longitude: 51.3755,
-            latitude: 35.7450,
-            zoom: 2
-          }
-        }
-        mapStyle={activeStyle}
-        mapboxAccessToken={accessToken}
-        styleDiffing
-        projection={mapProjection}
-        style={{ fontFamily: "unset" }}
-      >
+    <>
+      {/* @ts-ignore */}
+      <div className={styles.mapContainer} ref={mapContainerRef} />
+
+      <MountingMap mapRef={mapRef}>
         <MapToolbox />
- 
-        {
-          showBuildings &&
-          <Buildings />
-        }
+      
+        <MapStyleSwitcher />
+      </MountingMap>
+
+      {/* {*/}
+      {/*  showBuildings &&*/}
+      {/*  <Buildings />*/}
+      {/* }*/}
         
-        <Terrain />
+      {/* <Terrain />*/}
         
-        <Projection />
-      </MapGL>
-    </div>
+      {/* <Projection />*/}
+
+      {/* </MapGL>*/}
+    </>
   )
 }
 

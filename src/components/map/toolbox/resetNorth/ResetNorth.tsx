@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { useMap } from "react-map-gl/mapbox"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
+import CompassIcon from "@core/icons/CompassIcon"
 import styles from "../styles.module.css"
-import CompassIcon from "../../../../@core/icons/CompassIcon"
+import useMap from "@/components/map/hooks/useMap"
 
 const ResetNorth = () => {
   
@@ -12,12 +12,12 @@ const ResetNorth = () => {
   const [bearing, setBearing] = useState<number>(0)
   
   const handleClick = () => {
-    map.current?.resetNorth()
-    map.current?.resetNorthPitch()
+    map.current.resetNorth()
+    map.current.resetNorthPitch()
   }
   
   useEffect(() => {
-    map.current?.on("rotate", e => {
+    map.current.on("rotate", e => {
       setBearing(e.target.getBearing())
     })
   }, [])
