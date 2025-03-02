@@ -6,6 +6,7 @@ export type ISidebarItem = {
   uuid: string
   title: string
   component: ReactElement
+  icon: ReactElement
 }
 
 type ISidebarState = {
