@@ -18,6 +18,17 @@ const Map = () => {
   useEffect(() => {
     if (mapContainerRef.current) {
       // @ts-ignore
+      if (mapboxgl.getRTLTextPluginStatus() === "unavailable") {
+        // @ts-ignore
+        mapboxgl.setRTLTextPlugin(
+          "packages/mapbox-gl-rtl-text.js",
+          null,
+          true // Lazy load the plugin
+        )
+      }
+      
+      
+      // @ts-ignore
       mapRef.current = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/streets-v11",
