@@ -6,7 +6,6 @@ import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import useSidebarStore from "./store/useSidebarStore.ts"
-import SettingsIcon from "../../@core/icons/SettingsIcon.tsx"
 
 const Sidebar = () => {
   
@@ -42,7 +41,7 @@ const Sidebar = () => {
             <ListItem disablePadding key={item.uuid}>
               <ListItemButton onClick={() => handleClick(item.uuid)}>
                 <ListItemIcon>
-                  <SettingsIcon />
+                  {item.icon}
                 </ListItemIcon>
 
                 <ListItemText className="text-right" primary={item.title} />
