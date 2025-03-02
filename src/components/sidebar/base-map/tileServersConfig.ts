@@ -37,7 +37,17 @@ const tileServersConfig: IMapTile[] = [
     thumbnail: "/images/map-styles/outdoors.webp",
     provider: "Mapbox",
     providerLogo: "/images/providers-logo/mapbox.svg"
+  },
+  {
+    uuid: uuid(),
+    serverUrl: "https://tiles.raah.ir/dynamic/new_style_preview.json",
+    title: "Balad",
+    type: "vector",
+    thumbnail: "/images/providers-logo/balad.svg",
+    provider: "Balad",
+    providerLogo: "/images/providers-logo/balad.svg"
   }
+  
 ]
 
 export default tileServersConfig
