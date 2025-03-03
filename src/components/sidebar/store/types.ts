@@ -15,5 +15,5 @@ type ISidebarState = {
 }
 
 type ISidebarActions = {
-  setActiveItem: (itemUuid: string) => void
+  setActiveItem: (itemUuid: ISidebarState["activeSidebar"]) => void
 }

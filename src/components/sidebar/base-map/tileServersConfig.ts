@@ -47,7 +47,6 @@ const tileServersConfig: IMapTile[] = [
     provider: "Balad",
     providerLogo: "/images/providers-logo/balad.svg"
   }
-  
 ]
 
 export default tileServersConfig
