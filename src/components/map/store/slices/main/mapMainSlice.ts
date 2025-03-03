@@ -7,6 +7,7 @@ export const mapMainSlice: ImmerStateCreator<IMapMainSlice> = set => ({
   activeTile: tileServersConfig[0].uuid,
   projection: "globe",
   parcelLayer: false,
+  showBuildings: false,
   
   setActiveTile: tileId => {
     set(state => {
@@ -20,5 +21,11 @@ export const mapMainSlice: ImmerStateCreator<IMapMainSlice> = set => ({
   
   setParcelLayer: isOn => {
     set({ parcelLayer: isOn })
+  },
+  
+  setShowBuildings: show => {
+    set(state => {
+      state.showBuildings = show
+    })
   }
 })

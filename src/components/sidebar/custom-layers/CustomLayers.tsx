@@ -10,14 +10,8 @@ const CustomLayers = () => {
   const setTerrain = useMapStore(state => state.setTerrain)
   const parcelLayer = useMapStore(state => state.parcelLayer)
   const setParcelLayer = useMapStore(state => state.setParcelLayer)
-  
-  const handleParcelToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setParcelLayer(e.target.checked)
-  }
-  
-  const handleTopoToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTerrain(e.target.checked)
-  }
+  const showBuildings = useMapStore(state => state.showBuildings)
+  const setShowBuildings = useMapStore(state => state.setShowBuildings)
   
   return (
     <div className="p-1.5">
@@ -30,7 +24,7 @@ const CustomLayers = () => {
             
             <Switch
               checked={parcelLayer}
-              onChange={handleParcelToggle}
+              onChange={e => setParcelLayer(e.target.checked)}
             />
           </div>
           
@@ -49,7 +43,20 @@ const CustomLayers = () => {
             
             <Switch
               checked={terrain}
-              onChange={handleTopoToggle}
+              onChange={e => setTerrain(e.target.checked)}
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div className="flex flex-col gap-1.5 pt-2">
+        <div className={clsx("w-full bg-gray-100 p-1 rounded-lg")}>
+          <div className="flex items-center justify-between">
+            <p className="text-md font-bold">ساختمان‌ها 3D</p>
+            
+            <Switch
+              checked={showBuildings}
+              onChange={e => setShowBuildings(e.target.checked)}
             />
           </div>
         </div>
