@@ -5,19 +5,21 @@ type IMapMainState = {
   activeTile: string
   projection: IMapProjection
   parcelLayer: boolean
+  showBuildings: boolean
 }
 
 type IMapMainActions = {
   setActiveTile: (tileId: string) => void
   setProjection: (projection: IMapMainState["projection"]) => void
   setParcelLayer: (isOn: IMapMainState["parcelLayer"]) => void
+  setShowBuildings: (show: IMapMainState["showBuildings"]) => void
 }
 
 export type IMapTile = {
   uuid: string
   title: string
   serverUrl: string
-  type: "vector" | "raster"
+  type: "vector" | "raster" | "hybrid"
   thumbnail: string
   provider: string
   providerLogo: string

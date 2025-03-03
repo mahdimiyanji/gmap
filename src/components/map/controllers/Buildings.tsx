@@ -1,83 +1,69 @@
-import { memo, useEffect } from "react"
-// import { useMap } from "react-map-gl/mapbox"
-import { IBuildingsState } from "../store/slices/buildings/types"
-import useMapStore from "../store/useMapStore"
+import { memo, useEffect, useRef } from "react"
 import useMap from "@/components/map/hooks/useMap.ts"
+import useMapStore from "@/components/map/store/useMapStore.ts"
 
 const Buildings = () => {
   
-  const buildingsTileUrl = useMapStore(state => state.buildingsTileUrl)
-  const setBuildingsConfig = useMapStore(state => state.setBuildingsConfig)
+  const showBuildings = useMapStore(state => state.showBuildings)
   
   const mapRef = useMap()
   const map = mapRef.current
   
-  // load and restore buildings base-map from local storage in first render
-  useEffect(() => {
-    const loadedObject = localStorage.getItem("__buildings")
-    if (loadedObject) {
-      const __mapBuildingsSettings = JSON.parse(loadedObject) as IBuildingsState
-      setBuildingsConfig(__mapBuildingsSettings)
-    }
-  }, [])
+  const isMapStylesLoaded = useRef(false)
   
   useEffect(() => {
-    if (map.isStyleLoaded()) {
+    if (isMapStylesLoaded.current) {
       handleBuildingsTiles()
     }
-    map.on("styledata", handleBuildingsTiles)
-    
-    return () => {
-      const buildingsSource = map.getSource("openmaptiles")
-      if (buildingsSource) {
-        map.removeLayer("3d-buildings")
-        map.removeSource("openmaptiles")
-      }
-      
-      map.off("styledata", handleBuildingsTiles)
+    else {
+      map.on("style.load", () => {
+        isMapStylesLoaded.current = true
+        handleBuildingsTiles()
+      })
     }
-  }, [])
+  }, [showBuildings, map])
+  
   
   const handleBuildingsTiles = () => {
-    if (!map.getSource("openmaptiles")) {
-      map.addSource("openmaptiles", {
-        url: buildingsTileUrl,
-        type: "vector"
-      })
-      
-      map.addLayer({
-        "id": "3d-buildings",
-        "source": "openmaptiles",
-        "source-layer": "building",
-        "type": "fill-extrusion",
-        "minzoom": 15,
-        "paint": {
-          "fill-extrusion-color": [
-            "interpolate",
-            ["linear"],
-            ["get", "render_height"],
-            0,
-            "lightgray",
-            200,
-            "royalblue",
-            400,
-            "lightblue"
-          ],
-          "fill-extrusion-height": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            15,
-            0,
-            16,
-            ["get", "render_height"]
-          ],
-          "fill-extrusion-base": ["case",
-            [">=", ["get", "zoom"], 16],
-            ["get", "render_min_height"],
-            0]
-        }
-      })
+    if (showBuildings) {
+      console.log(map.getSource("3d-buildings"))
+      if (!map.getSource("3d-buildings")) {
+        map.addLayer({
+          "id": "3d-buildings",
+          "source": "composite",
+          "source-layer": "building",
+          "filter": ["==", "extrude", "true"],
+          "type": "fill-extrusion",
+          "minzoom": 15,
+          "paint": {
+            "fill-extrusion-color": "#aaa",
+            "fill-extrusion-height": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              15,
+              0,
+              15.05,
+              ["get", "height"]
+            ],
+            "fill-extrusion-base": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              15,
+              0,
+              15.05,
+              ["get", "min_height"]
+            ],
+            "fill-extrusion-opacity": 0.6
+          }
+        })
+      }
+    }
+    else {
+      if (map.getLayer("3d-buildings")) {
+        map.removeLayer("3d-buildings")
+      }
     }
   }
   

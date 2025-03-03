@@ -5,6 +5,8 @@ import MapStyleSwitcher from "@/components/map/controllers/MapStyleSwitcher.tsx"
 import MountingMap from "@/components/map/controllers/MountingMap.tsx"
 import Projection from "@/components/map/controllers/projection/Projection.tsx"
 import ParcelLayer from "@/components/map/controllers/parcel-layer/ParcelLayer.tsx"
+import Terrain from "@/components/map/controllers/Terrain.tsx"
+import Buildings from "@/components/map/controllers/Buildings.tsx"
 
 // eslint-disable-next-line @stylistic/max-len
 const accessToken = "pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ"
@@ -27,7 +29,6 @@ const Map = () => {
           true // Lazy load the plugin
         )
       }
-      
       
       // @ts-ignore
       mapRef.current = new mapboxgl.Map({
@@ -53,16 +54,11 @@ const Map = () => {
         <Projection />
         
         <ParcelLayer />
-      </MountingMap>
-
-      {/* {*/}
-      {/*  showBuildings &&*/}
-      {/*  <Buildings />*/}
-      {/* }*/}
         
-      {/* <Terrain />*/}
-
-      {/* </MapGL>*/}
+        <Terrain />
+        
+        <Buildings />
+      </MountingMap>
     </>
   )
 }
