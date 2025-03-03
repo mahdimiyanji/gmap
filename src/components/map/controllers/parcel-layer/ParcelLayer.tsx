@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import useMap from "@/components/map/hooks/useMap.ts"
 import useMapStore from "@/components/map/store/useMapStore.ts"
 
