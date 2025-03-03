@@ -1,30 +1,15 @@
 import { memo, useEffect, useRef } from "react"
-import { ITerrainState } from "../store/slices/terrain/types"
 import useMapStore from "../store/useMapStore"
 import useMap from "@/components/map/hooks/useMap.ts"
 
 const Terrain = () => {
   
-  const terrainTileUrl = useMapStore(state => state.terrainTileUrl)
-  const hillshadeTileUrl = useMapStore(state => state.hillshadeTileUrl)
   const terrain = useMapStore(state => state.terrain)
-  const hillShade = useMapStore(state => state.hillShade)
-  const exaggeration = useMapStore(state => state.exaggeration)
-  const setTerrainConfig = useMapStore(state => state.setTerrainConfig)
   
   const isMapStylesLoaded = useRef(false)
   
   const mapRef = useMap()
   const map = mapRef.current
-  
-  // load and restore terrain base-map from local storage in first render
-  useEffect(() => {
-    const loadedObject = localStorage.getItem("__terrain")
-    if (loadedObject) {
-      const __mapTerrainSettings = JSON.parse(loadedObject) as ITerrainState
-      setTerrainConfig(__mapTerrainSettings)
-    }
-  }, [])
   
   useEffect(() => {
     if (isMapStylesLoaded.current) {
@@ -36,53 +21,55 @@ const Terrain = () => {
         handleTerrainTiles()
       })
     }
-  }, [terrain, exaggeration, map])
+  }, [terrain, map])
   
   const handleTerrainTiles = () => {
     const isTerrainSourceLoaded = !!map.getSource("terrain")
+    const isHillshadeSourceLoaded = !!map.getSource("hillshade-maptiler")
+    
     if (terrain) {
+      // when hmr reloads page, it adds the source again and throw an error, just check to not add it twice
       if (!isTerrainSourceLoaded) {
         map.addSource("terrain", {
-          url: terrainTileUrl,
+          url: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
           type: "raster-dem",
           tileSize: 256
         })
+        
+        map.setTerrain({
+          source: "terrain",
+          exaggeration: 1
+        })
       }
       
-      map.setTerrain({
-        source: "terrain",
-        exaggeration: exaggeration
-      })
+      if (!isHillshadeSourceLoaded) {
+        map.addSource("hillshade-maptiler", {
+          type: "raster-dem",
+          tileSize: 256,
+          url: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE"
+        })
+        
+        map.addLayer({
+          id: "hillshade-maptiler",
+          type: "hillshade",
+          source: "hillshade-maptiler"
+        })
+      }
     }
     else {
       if (isTerrainSourceLoaded) {
+        map.setTerrain(undefined)
         map.removeSource("terrain")
       }
-      map.setTerrain(undefined)
+      
+      if (isHillshadeSourceLoaded) {
+        map.removeLayer("hillshade-maptiler")
+        map.removeSource("hillshade-maptiler")
+      }
     }
   }
   
-  return (
-    <>
-      {
-        hillShade &&
-        <>
-          {/* <Source*/}
-          {/*  id="hillshade-source"*/}
-          {/*  type="raster-dem"*/}
-          {/*  url={hillshadeTileUrl}*/}
-          {/*  tileSize={256}*/}
-          {/* />*/}
-          
-          {/* <Layer*/}
-          {/*  id="hillshade"*/}
-          {/*  type="hillshade"*/}
-          {/*  source="hillshade-source"*/}
-          {/* />*/}
-        </>
-      }
-    </>
-  )
+  return null
 }
 
 export default memo(Terrain)
