@@ -5,9 +5,9 @@ const tileServersConfig: IMapTile[] = [
   {
     uuid: uuid(),
     serverUrl: "https://api.mapbox.com/styles/v1/mapbox/streets-v12?access_token=pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ",
-    title: "استاندارد",
+    title: "روشن",
     type: "vector",
-    thumbnail: "/images/map-styles/standard.webp",
+    thumbnail: "/images/map-styles/outdoors.webp",
     provider: "Mapbox",
     providerLogo: "/images/providers-logo/mapbox.svg"
   },
@@ -37,6 +37,15 @@ const tileServersConfig: IMapTile[] = [
     thumbnail: "/images/providers-logo/balad.svg",
     provider: "Balad",
     providerLogo: "/images/providers-logo/balad.svg"
+  },
+  {
+    uuid: uuid(),
+    serverUrl: "https://api.mapbox.com/styles/v1/mapbox/standard?access_token=pk.eyJ1Ijoic3ZjLW9rdGEtbWFwYm94LXN0YWZmLWFjY2VzcyIsImEiOiJjbG5sMnExa3kxNTJtMmtsODJld24yNGJlIn0.RQ4CHchAYPJQZSiUJ0O3VQ",
+    title: "استاندارد",
+    type: "vector",
+    thumbnail: "/images/map-styles/standard.webp",
+    provider: "Mapbox",
+    providerLogo: "/images/providers-logo/mapbox.svg"
   }
 ]
 
