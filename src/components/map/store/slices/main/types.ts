@@ -17,7 +17,7 @@ export type IMapTile = {
   uuid: string
   title: string
   serverUrl: string
-  type: "vector" | "raster"
+  type: "vector" | "raster" | "hybrid"
   thumbnail: string
   provider: string
   providerLogo: string

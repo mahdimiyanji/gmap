@@ -42,11 +42,11 @@ const StyleSelection = () => {
                 <p className="text-md font-bold">{tile.title}</p>
               
                 <div
-                  className="flex w-fit p-0.5 gap-1 items-center rounded-full border-1 border-gray-300 text-gray-700 text-xs"
+                  className="flex w-fit py-0.5 px-1 gap-1 items-center rounded-full border-1 border-gray-300 text-gray-600 text-xs"
                 >
                   <p>{tile.type}</p>
                 
-                  <PolylineIcon sx={{ fontSize: 14 }} />
+                  {/* <PolylineIcon sx={{ fontSize: 14 }} />*/}
                 </div>
               </div>
             
