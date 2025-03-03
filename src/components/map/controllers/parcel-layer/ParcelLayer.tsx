@@ -16,7 +16,7 @@ const ParcelLayer = () => {
           addParcelLayer()
         }
         else {
-          // removeParcelLayer()
+          removeParcelLayer()
         }
       },
       { fireImmediately: true }
@@ -130,6 +130,15 @@ const ParcelLayer = () => {
           ]
         }
       })
+    }
+  }
+  
+  const removeParcelLayer = () => {
+    const parcelLayer = map.getSource("parcels")
+    if (parcelLayer) {
+      map.removeLayer("parcels_l")
+      map.removeLayer("parcels_l-label")
+      map.removeSource("parcels")
     }
   }
   
