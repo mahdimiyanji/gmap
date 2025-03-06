@@ -2,7 +2,8 @@ import React from "react"
 import Divider from "@mui/material/Divider"
 import Sidebar from "../components/sidebar/Sidebar"
 import Map from "../components/map/Map"
-import SecondSide from "../components/sidebar/SecondSide.tsx"
+import SecondSide from "../components/sidebar/SecondSide"
+import HiddenFeatures from "@/components/hidden-features/HiddenFeatures"
 
 const Main = () => {
   return (
@@ -14,6 +15,8 @@ const Main = () => {
       <SecondSide />
 
       <Map />
+      
+      <HiddenFeatures />
     </div>
   )
 }

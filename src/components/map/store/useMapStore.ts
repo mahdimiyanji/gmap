@@ -11,6 +11,7 @@ const useMapStore = create(subscribeWithSelector(immer<IMapStore>((set, getState
   showParcelLayer: false,
   showBuildings: false,
   showTerrain: false,
+  showHiddenFeatures: false,
   
   setActiveTile: tileId => {
     set(state => {
@@ -34,6 +35,10 @@ const useMapStore = create(subscribeWithSelector(immer<IMapStore>((set, getState
   
   setShowTerrain: show => {
     set({ showTerrain: show })
+  },
+  
+  setShowHiddenFeatures: show => {
+    set({ showHiddenFeatures: show })
   }
 }))))
 

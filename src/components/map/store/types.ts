@@ -7,14 +7,16 @@ type IMapState = {
   showParcelLayer: boolean
   showBuildings: boolean
   showTerrain: boolean
+  showHiddenFeatures: boolean
 }
 
 type IMapActions = {
   setActiveTile: (tileId: string) => void
   setProjection: (projection: IMapState["projection"]) => void
-  setShowParcelLayer: (isOn: IMapState["showParcelLayer"]) => void
+  setShowParcelLayer: (show: IMapState["showParcelLayer"]) => void
   setShowBuildings: (show: IMapState["showBuildings"]) => void
-  setShowTerrain: (isOn: boolean) => void
+  setShowTerrain: (show: boolean) => void
+  setShowHiddenFeatures: (show: boolean) => void
 }
 
 export type IMapTile = {
