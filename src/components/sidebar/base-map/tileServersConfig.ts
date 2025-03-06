@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid"
-import { IMapTile } from "../../map/store/slices/main/types.ts"
+import { IMapTile } from "../../map/store/types.ts"
 
 const tileServersConfig: IMapTile[] = [
   {

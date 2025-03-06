@@ -4,7 +4,7 @@ import useMap from "@/components/map/hooks/useMap.ts"
 
 const Terrain = () => {
   
-  const terrain = useMapStore(state => state.terrain)
+  const showTerrain = useMapStore(state => state.showTerrain)
   
   const isMapStylesLoaded = useRef(false)
   
@@ -21,13 +21,13 @@ const Terrain = () => {
         handleTerrainTiles()
       })
     }
-  }, [terrain, map])
+  }, [showTerrain, map])
   
   const handleTerrainTiles = () => {
     const isTerrainSourceLoaded = !!map.getSource("terrain")
     const isHillshadeSourceLoaded = !!map.getSource("hillshade-maptiler")
     
-    if (terrain) {
+    if (showTerrain) {
       // when hmr reloads page, it adds the source again and throw an error, just check to not add it twice
       if (!isTerrainSourceLoaded) {
         map.addSource("terrain", {

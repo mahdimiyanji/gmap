@@ -1,13 +1,40 @@
 import { create } from "zustand"
 import { subscribeWithSelector } from "zustand/middleware"
 import { immer } from "zustand/middleware/immer"
-import { mapMainSlice } from "./slices/main/mapMainSlice"
-import { terrainSlice } from "./slices/terrain/terrainSlice"
 import { IMapStore } from "./types"
+import tileServersConfig from "@/components/sidebar/base-map/tileServersConfig.ts"
 
-const useMapStore = create(subscribeWithSelector(immer<IMapStore>((...params) => ({
-  ...mapMainSlice(...params),
-  ...terrainSlice(...params)
+const useMapStore = create(subscribeWithSelector(immer<IMapStore>((set, getState) => ({
+  tiles: tileServersConfig,
+  activeTile: tileServersConfig[0].uuid,
+  projection: "globe",
+  showParcelLayer: false,
+  showBuildings: false,
+  showTerrain: false,
+  
+  setActiveTile: tileId => {
+    set(state => {
+      state.activeTile = tileId
+    })
+  },
+  
+  setProjection: newProjection => {
+    set({ projection: newProjection })
+  },
+  
+  setShowParcelLayer: show => {
+    set({ showParcelLayer: show })
+  },
+  
+  setShowBuildings: show => {
+    set(state => {
+      state.showBuildings = show
+    })
+  },
+  
+  setShowTerrain: show => {
+    set({ showTerrain: show })
+  }
 }))))
 
 export default useMapStore
