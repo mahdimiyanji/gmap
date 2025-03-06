@@ -3,6 +3,7 @@ import Dialog from "@mui/material/Dialog"
 import { TextField } from "@mui/material"
 import { useKeyPress } from "@core/hooks/useKeyPress"
 import useMapStore from "@/components/map/store/useMapStore.ts"
+import { createHash } from "@/components/hidden-features/utils.ts"
 
 const HiddenFeatures = () => {
   
@@ -19,10 +20,17 @@ const HiddenFeatures = () => {
         code: ["Enter", "NumpadEnter"],
         handler: () => {
           if (showModal) {
-            if (inputValue === "hello-gmap-ir") {
-              setShowHiddenFeatures(true)
-              setInputValue("")
-              setShowModal(false)
+            try {
+              const hash = createHash(inputValue)
+              if (hash === 7996119634521271) {
+                setShowHiddenFeatures(true)
+                setInputValue("")
+                setShowModal(false)
+              }
+              
+            }
+            catch {
+              console.log("got error")
             }
           }
         }
