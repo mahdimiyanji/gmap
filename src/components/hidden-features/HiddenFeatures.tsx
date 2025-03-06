@@ -21,6 +21,8 @@ const HiddenFeatures = () => {
           if (showModal) {
             if (inputValue === "hello-gmap-ir") {
               setShowHiddenFeatures(true)
+              setInputValue("")
+              setShowModal(false)
             }
           }
         }
@@ -41,6 +43,7 @@ const HiddenFeatures = () => {
     if (dblShiftPress.current != 0 && ev.shiftKey) {
       dblShiftPress.current = 0
       setShowModal(true)
+      setInputValue("")
     }
     else {
       dblShiftPress.current = 1
@@ -53,6 +56,7 @@ const HiddenFeatures = () => {
     <Dialog open={showModal} onClose={() => setShowModal(false)} fullWidth>
       <TextField
         dir="ltr"
+        type="password"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
         fullWidth
