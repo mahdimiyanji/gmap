@@ -27,6 +27,7 @@ export type IMapTile = {
   thumbnail: string
   provider: string
   providerLogo: string
+  isHiddenTile: boolean
 }
 
 export type IMapProjection = "globe" | "mercator"

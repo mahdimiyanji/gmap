@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import Divider from "@mui/material/Divider"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
@@ -19,14 +19,14 @@ const Sidebar = () => {
     setActiveItem(itemId)
   }
   
-  const filterHiddenFeatures = (() => {
+  const filterHiddenFeatures = useMemo(() => {
     if (showHiddenFeatures) {
       return items
     }
     else {
       return items.filter(i => !i.isHiddenFeature)
     }
-  })()
+  }, [items, showHiddenFeatures])
   
   return (
     <div className="h-full w-[200px] p-1 flex flex-col gap-2 relative">
