@@ -1,20 +1,32 @@
-import React from "react"
+import React, { useMemo } from "react"
 import Divider from "@mui/material/Divider"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import useSidebarStore from "./store/useSidebarStore.ts"
+import useSidebarStore from "./store/useSidebarStore"
+import useMapStore from "@/components/map/store/useMapStore"
 
 const Sidebar = () => {
   
   const items = useSidebarStore(state => state.items)
   const setActiveItem = useSidebarStore(state => state.setActiveItem)
   
+  const showHiddenFeatures = useMapStore(state => state.showHiddenFeatures)
+  
   const handleClick = (itemId: string) => {
     setActiveItem(itemId)
   }
+  
+  const filterHiddenFeatures = useMemo(() => {
+    if (showHiddenFeatures) {
+      return items
+    }
+    else {
+      return items.filter(i => !i.isHiddenFeature)
+    }
+  }, [items, showHiddenFeatures])
   
   return (
     <div className="h-full w-[200px] p-1 flex flex-col gap-2 relative">
@@ -37,7 +49,7 @@ const Sidebar = () => {
       
       <List>
         {
-          items.map(item => (
+          filterHiddenFeatures.map(item => (
             <ListItem disablePadding key={item.uuid}>
               <ListItemButton onClick={() => handleClick(item.uuid)}>
                 <ListItemIcon>

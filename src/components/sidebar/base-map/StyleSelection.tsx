@@ -1,6 +1,5 @@
-import React from "react"
+import React, { useMemo } from "react"
 import clsx from "clsx"
-import PolylineIcon from "@mui/icons-material/Polyline"
 import useMapStore from "../../map/store/useMapStore.ts"
 
 const StyleSelection = () => {
@@ -8,10 +7,20 @@ const StyleSelection = () => {
   const tiles = useMapStore(state => state.tiles)
   const activeTile = useMapStore(state => state.activeTile)
   const setActiveTile = useMapStore(state => state.setActiveTile)
+  const showHiddenFeatures = useMapStore(state => state.showHiddenFeatures)
   
   const clickHandler = (tileId: string) => {
     setActiveTile(tileId)
   }
+  
+  const filteredHiddenTiles = useMemo(() => {
+    if (showHiddenFeatures) {
+      return tiles
+    }
+    else {
+      return tiles.filter(tile => !tile.isHiddenTile)
+    }
+  }, [showHiddenFeatures, tiles])
   
   return (
     <>
@@ -19,7 +28,7 @@ const StyleSelection = () => {
       
       <div className="flex flex-col gap-1.5">
         {
-          tiles.map(tile => (
+          filteredHiddenTiles.map(tile => (
             <div
               className={
                 clsx(
@@ -45,8 +54,6 @@ const StyleSelection = () => {
                   className="flex w-fit py-0.5 px-1 gap-1 items-center rounded-full border-1 border-gray-300 text-gray-600 text-xs"
                 >
                   <p>{tile.type}</p>
-                
-                  {/* <PolylineIcon sx={{ fontSize: 14 }} />*/}
                 </div>
               </div>
             

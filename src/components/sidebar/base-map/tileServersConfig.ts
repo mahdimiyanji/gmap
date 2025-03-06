@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid"
-import { IMapTile } from "../../map/store/slices/main/types.ts"
+import { IMapTile } from "../../map/store/types.ts"
 
 const tileServersConfig: IMapTile[] = [
   {
@@ -9,7 +9,8 @@ const tileServersConfig: IMapTile[] = [
     type: "vector",
     thumbnail: "/images/map-styles/outdoors.webp",
     provider: "Mapbox",
-    providerLogo: "/images/providers-logo/mapbox.svg"
+    providerLogo: "/images/providers-logo/mapbox.svg",
+    isHiddenTile: false
   },
   {
     uuid: uuid(),
@@ -18,7 +19,8 @@ const tileServersConfig: IMapTile[] = [
     type: "vector",
     thumbnail: "/images/map-styles/dark.webp",
     provider: "Mapbox",
-    providerLogo: "/images/providers-logo/mapbox.svg"
+    providerLogo: "/images/providers-logo/mapbox.svg",
+    isHiddenTile: false
   },
   {
     uuid: uuid(),
@@ -27,7 +29,8 @@ const tileServersConfig: IMapTile[] = [
     type: "hybrid",
     thumbnail: "/images/map-styles/sattelite.webp",
     provider: "Mapbox",
-    providerLogo: "/images/providers-logo/mapbox.svg"
+    providerLogo: "/images/providers-logo/mapbox.svg",
+    isHiddenTile: false
   },
   {
     uuid: uuid(),
@@ -36,7 +39,8 @@ const tileServersConfig: IMapTile[] = [
     type: "vector",
     thumbnail: "/images/providers-logo/balad.svg",
     provider: "Balad",
-    providerLogo: "/images/providers-logo/balad.svg"
+    providerLogo: "/images/providers-logo/balad.svg",
+    isHiddenTile: true
   },
   {
     uuid: uuid(),
@@ -45,7 +49,8 @@ const tileServersConfig: IMapTile[] = [
     type: "vector",
     thumbnail: "/images/map-styles/standard.webp",
     provider: "Mapbox",
-    providerLogo: "/images/providers-logo/mapbox.svg"
+    providerLogo: "/images/providers-logo/mapbox.svg",
+    isHiddenTile: false
   }
 ]
 

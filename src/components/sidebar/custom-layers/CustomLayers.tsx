@@ -6,10 +6,10 @@ import useMapStore from "@/components/map/store/useMapStore.ts"
 
 const CustomLayers = () => {
   
-  const terrain = useMapStore(state => state.terrain)
-  const setTerrain = useMapStore(state => state.setTerrain)
-  const parcelLayer = useMapStore(state => state.parcelLayer)
-  const setParcelLayer = useMapStore(state => state.setParcelLayer)
+  const showTerrain = useMapStore(state => state.showTerrain)
+  const setShowTerrain = useMapStore(state => state.setShowTerrain)
+  const showParcelLayer = useMapStore(state => state.showParcelLayer)
+  const setShowParcelLayer = useMapStore(state => state.setShowParcelLayer)
   const showBuildings = useMapStore(state => state.showBuildings)
   const setShowBuildings = useMapStore(state => state.setShowBuildings)
   
@@ -23,8 +23,8 @@ const CustomLayers = () => {
             <p className="text-md font-bold">خانه‌ها و پلاک‌ها</p>
             
             <Switch
-              checked={parcelLayer}
-              onChange={e => setParcelLayer(e.target.checked)}
+              checked={showParcelLayer}
+              onChange={e => setShowParcelLayer(e.target.checked)}
             />
           </div>
           
@@ -42,8 +42,8 @@ const CustomLayers = () => {
             <p className="text-md font-bold">توپوگرافی</p>
             
             <Switch
-              checked={terrain}
-              onChange={e => setTerrain(e.target.checked)}
+              checked={showTerrain}
+              onChange={e => setShowTerrain(e.target.checked)}
             />
           </div>
         </div>

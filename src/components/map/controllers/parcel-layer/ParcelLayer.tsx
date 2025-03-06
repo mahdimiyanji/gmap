@@ -10,7 +10,7 @@ const ParcelLayer = () => {
   // save projection of map in local storage
   useEffect(() => {
     const unSubscribe = useMapStore.subscribe(
-      state => state.parcelLayer,
+      state => state.showParcelLayer,
       newStatus => {
         if (newStatus) {
           addParcelLayer()

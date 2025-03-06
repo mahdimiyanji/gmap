@@ -7,6 +7,7 @@ export type ISidebarItem = {
   title: string
   component: ReactElement
   icon: ReactElement
+  isHiddenFeature: boolean
 }
 
 type ISidebarState = {

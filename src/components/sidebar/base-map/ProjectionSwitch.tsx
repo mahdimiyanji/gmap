@@ -1,7 +1,7 @@
 import React from "react"
 import clsx from "clsx"
 import useMapStore from "../../map/store/useMapStore.ts"
-import { IMapProjection } from "../../map/store/slices/main/types.ts"
+import { IMapProjection } from "../../map/store/types.ts"
 
 const ProjectionSwitch = () => {
   
