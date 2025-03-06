@@ -29,9 +29,7 @@ const HiddenFeatures = () => {
               }
               
             }
-            catch {
-              console.log("got error")
-            }
+            catch { /* empty */ }
           }
         }
       }
